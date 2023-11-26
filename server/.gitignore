@@ -1,0 +1,7 @@
+.*
+!.gitignore
+/node_modules/
+
+/public/images/*
+
+/sequelize*.json
