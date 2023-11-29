@@ -1,29 +1,27 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { updateUserSchema } from "../../utils/validationSchemas";
 
-const initialValues = {
-  firstName: "",
-  lastName: "",
-  email: "",
-  password: "",
-  birthday: "",
-  isMale: false,
-  avatar: "",
-};
+// const initialValues = {
+//   firstName: "",
+//   lastName: "",
+//   email: "",
+//   password: "",
+//   birthday: "",
+//   isMale: false,
+//   avatar: "",
+// };
 
 const FormForUser = (props) => {
-  const { submit, schema } = props;
-  console.log(schema, submit);
+  const { initialValues, submit, schema } = props;
   return (
     <Formik
       initialValues={initialValues}
       onSubmit={submit}
-      validationSchema={updateUserSchema}
+      validationSchema={schema}
     >
       {(formikProps) => {
         const handleAvatar = ({ target }) => {
-          formikProps.setFieldValue("avatar", target.files[0]);
+          formikProps.setFieldValue('avatar', target.files[0]);
         };
         return (
           <Form encType="multipart/form-data">

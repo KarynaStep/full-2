@@ -20,7 +20,7 @@ const UserProfile = () => {
     tasks,
   } = useSelector((store) => store.tasks);
   useEffect(() => {
-    dispatch(getUser(Number(idUser)));
+    dispatch(getUser(idUser));
   }, [idUser, dispatch]);
   const handleShowTasks = () => {
     dispatch(getUserTasks({id: idUser}))
@@ -31,7 +31,11 @@ const UserProfile = () => {
       {usersIsFetching && <p>Loading...</p>}
       {!usersError && !usersIsFetching && currentUser && (
         <article>
-          UserProfile id = {idUser} email: {currentUser.email}
+          <p>UserProfile id: {idUser}</p>
+          <p>Email: {currentUser.email}</p>
+          <p>First name: {currentUser.firstName} </p>
+          <p>Last name: {currentUser.lastName} </p>
+          <p>Birthday: {currentUser.birthday} </p>
           {currentUser.avatar && (
             <img
               width={100}
@@ -51,7 +55,7 @@ const UserProfile = () => {
               </ul>
             )}
           </section>
-          <UserUpdate />
+          <UserUpdate currentUser={currentUser} />
         </article>
       )}
     </>

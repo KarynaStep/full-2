@@ -4,7 +4,15 @@ import { userSchema } from "../../utils/validationSchemas";
 import { addUser } from "../../store/usersSlice";
 import FormForUser from "../FormForUser/FormForUser";
 
-
+const initialValues = {
+  firstName: '',
+  lastName: '',
+  email: '',
+  password: '',
+  birthday: '',
+  isMale: false,
+  avatar: '',
+};
 
 const UserForm = () => {
   const dispatch = useDispatch();
@@ -12,7 +20,13 @@ const UserForm = () => {
     dispatch(addUser(values));
   };
 
-  return <FormForUser submit={onSubmit} schema={userSchema} />;
+  return (
+    <FormForUser
+      initialValues={initialValues}
+      submit={onSubmit}
+      schema={userSchema}
+    />
+  );
   
 };
 
