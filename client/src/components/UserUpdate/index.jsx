@@ -20,7 +20,7 @@ const UserUpdate = () => {
   useEffect(() => {
     dispatch(getUser(idUser));
   }, [idUser, dispatch]);
-  
+
   const initialValues = {
     firstName: currentUser.firstName,
     lastName: currentUser.lastName,
@@ -31,31 +31,17 @@ const UserUpdate = () => {
     avatar: currentUser.avatar,
   };
 
-
-  //  const initialValues = {
-  //    firstName: 'firstName20',
-  //    lastName: 'lastName20',
-  //    email: 'name20@gmail.com',
-  //    password: '',
-  //    birthday: '1981-09-19',
-  //    isMale: false,
-  //    avatar: ''
-  //  };
-
-  // console.dir(currentUser);
-  // const initialValues = currentUser;
-
   const submit = (values, formikBag) => {
-    console.log((values + 'values'));
     let filteredObj = {};
     for (let key in values) {
       if (values[key] !== '' || values[key] === true) {
         filteredObj[key] = values[key];
       }
     }
-    console.log(filteredObj + 'filteredObj');
     dispatch(updateOneUser([idUser, filteredObj]));
+    dispatch(getUser(idUser));
     formikBag.resetForm();
+    setShow(!show);
   };
   const handelClick = () => setShow(!show);
 

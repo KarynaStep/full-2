@@ -27,16 +27,16 @@ export const userSchema = Yup.object({
 });
 
 export const updateUserSchema = Yup.object({
-  firstName: Yup.string()
+  firstName: Yup.string('must be string')
     .trim()
     .matches(/^[A-Za-z0-9]{2,63}$/, 'length 2..64'),
-  lastName: Yup.string()
+  lastName: Yup.string('must be string')
     .trim()
     .matches(/^[A-Za-z0-9]{2,63}$/, 'length 2..64'),
-  email: Yup.string().trim().email(),
+  email: Yup.string('must be string').trim().email('must be email'),
   password: Yup.string()
     .trim()
     .matches(/.{2,64}/, 'length 2..64'),
-  birthday: Yup.date().max(new Date(), 'wrong data'),
-  isMale: Yup.boolean()
+  birthday: Yup.date('must be date').max(new Date(), 'wrong data'),
+  isMale: Yup.boolean(),
 });
