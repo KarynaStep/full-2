@@ -1,0 +1,15 @@
+@use '/src/common/styles/colors' as *;
+
+button {
+  margin: 10px;
+  padding: 8px;
+  background-color: $colorWhite;
+  color: $colorMain;
+  border: none;
+  border-radius: 10px;
+  text-transform: uppercase;
+}
+.container_form{
+  display: flex;
+  
+}

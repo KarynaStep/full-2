@@ -55,7 +55,7 @@ const UserProfile = () => {
               </ul>
             )}
           </section>
-          <UserUpdate currentUser={currentUser} />
+          <UserUpdate />
         </article>
       )}
     </>

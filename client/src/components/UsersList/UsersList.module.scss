@@ -1,0 +1,22 @@
+@use '/src/common/styles/colors' as *;
+
+.item {
+  list-style: none;
+}
+.item > a {
+  margin-left: 5px;
+
+  color: $colorWhite;
+
+  text-decoration: underline;
+  text-transform: uppercase;
+}
+button {
+  margin-left: 5px;
+  padding: 5px;
+  background-color: $colorWhite;
+  color: $colorMain;
+  border: none;
+  border-radius: 10px;
+  text-transform: uppercase;
+}

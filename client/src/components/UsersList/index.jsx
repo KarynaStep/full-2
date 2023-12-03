@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { delUser, getUsers } from '../../store/usersSlice';
+import styles from './UsersList.module.scss'
 
 const UsersList = () => {
   const { users, error, isFetching } = useSelector((state) => state.users);
@@ -14,7 +15,7 @@ const UsersList = () => {
   }, []);
   
   const mapUsers = (user) => (
-    <li key={user.id}>
+    <li className={styles.item} key={user.id}>
       {user.email}
       <Link to={`/users/${user.id}`}> profile</Link>
       <button onClick={() => handelDelete(user.id)}>delete</button>

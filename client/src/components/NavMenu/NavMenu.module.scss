@@ -1,0 +1,15 @@
+@use '/src/common/styles/colors' as *;
+
+.menu{
+  display: flex;
+  justify-content: space-around;
+  .item{
+    list-style: none;
+  }
+  .item >a{
+    color: $colorWhite;
+
+    text-decoration:none;
+    text-transform:uppercase;
+  }
+}
